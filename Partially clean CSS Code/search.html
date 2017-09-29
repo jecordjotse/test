@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		    <meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			
+			<meta name="keywords" content="#">
+			<meta name="description" content="#">
+			<meta name="author" content="CarrymeGo">
+            <link rel="shortcut icon" href="assets/images/bus.png" type="image/x-icon" />
+
+			<title> CarryMeGo | Online Bus Ticket Booking </title>
+			
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
+			<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+			<link href="assets/css/select2.min.css" rel="stylesheet" />
+			<link rel="stylesheet" href="assets/css/select2-bootstrap.min.css">				
+			<link rel="stylesheet" href="assets/css/flatpickr.min.css"/>
+			<link rel="stylesheet" type="text/css" href="assets/css/global.css">
+			<link rel="stylesheet" type="text/css" href="assets/css/search.css">
+			<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	   </head>
+
+
+		  <body>	
+			<div class="cmg_space4 cmg_bg_gradient"></div>
+				<div class="cmg_fl_nav">
+				   <div class="topnav " id="cmg_top_nav">
+						<div class="container"> 					
+						  <div class="topnav-l hidden-xs">
+								<ul class="top_nav-list">
+									<li class="maR_10">
+									  Help
+									 </li>
+									<li class="maR_10">
+									   <a href="tel:233 502 123 456"><i class="fa fa-phone"></i>&nbsp;+233 502 123 456</a>
+									</li> 
+									<li class="maR_10">
+									   <a href="mailto:info@carrymego.com"><i class="fa fa-envelope"></i>&nbsp;info@carrymego.com</a>
+									</li>
+								</ul>
+							</div>
+							<div class="topnav-r" >	
+							  <ul class="top_nav-list">
+								<li class="maR_10">
+									<i class="fa fa-user"></i><a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"> Sign Up </a>&nbsp;
+									 <span>|</span>
+								</li>
+								<li class="maR_10">
+                                   <i class="fa fa-sign-in"></i><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"> Sign In</a>
+								</li>					
+							</ul>
+						</div>
+					</div>
+				 </div>		
+		 
+				 <nav class="navbar c-navbar">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						<div class="logo">
+							<a class="navbar-brand" href="index.html">
+							   <img class="img-responsive" src="assets/images/logo.png" alt="Carrymego.com" width="190px">
+							 </a> 
+						</div>
+						</div>
+						<div class="collapse navbar-collapse" id="mainNav">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="sr-only active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
+								<li class="active"><a href="TicketStatus.html">Ticket Status</a></li>
+								<li><a href="PrintTicket.html">Print/SMS Ticket</a></li>
+								<li class="active"><a href="CancelTicket.html">Cancel Ticket</a></li>							
+							</ul>
+						</div>
+					</div>
+				</nav>
+		   </div>	
+   
+   
+	      <div class="modal fade login" id="loginModal" role="dialog">
+			<div class="modal-dialog">
+				 <!-- Modal content-->
+				 <button type="button" class="close_left" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<div class="registerBox">
+						 <form action="#" method="POST" id="signup">
+							<div class="signup-block">
+								<h1> Sign Up </h1>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="Email"  placeholder="Email" required="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" name="password" placeholder="Password" required="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" required="">
+								</div>
+								<p class="message">By creating an account you agree to our <a href="terms.html">Terms and Conditions</a> and our <a href="privacy.html">Privacy Policy</a></p>
+								<button type="submit"  class="btn btn-block btn-signin">Create my account</button>
+								<br />
+								<p class="message">Already have an account? <a href="javascript: showLoginForm();">&nbsp;Sign In</a></p>
+							</div>
+						</form>
+				   </div>				
+					<div class="loginBox" style="display: none;"> 
+					 <form method="POST" action="#" id="login">
+						<div class="signup-block">
+							<h1> Sign In </h1>
+							<div class="form-group">
+								<input type="email" class="form-control"  name="userEmail"  placeholder="Email" id="userEmail" required="">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" name="password" placeholder="Password" id="password" required="">
+							</div>
+							<button type="submit"  class="btn btn-block btn-signin">Sign In</button>
+							<br />
+							<p class="message"><a href="javascript: showRecoverForm();">Forgot your password?</a></p>
+							<p class="message">Not registered? <a href="javascript: showRegisterForm();">&nbsp;Create an account</a></p>
+						</div>
+					</form>
+				  </div>
+			  
+				  <div class="recoverBox" style="display: none;">
+					<form method="POST" action="#" id="forgotpass">
+					  <div class="signup-block">
+						<h1> Forgot Password</h1>
+						<div class="form-group">
+							<input type="email" class="form-control" name="userEmail" placeholder="Enter Email" id="Email" required="" />
+						</div>
+						<button type="submit" class="btn btn-block btn-signin">Send Email</button>
+						<p class="message">We will send you a link to reset your password</p>
+						<br />
+						<p class="message">Already have an account? <a href="javascript: showLoginForm();">&nbsp;Sign In</a></p>
+					 </div>
+					</form>
+				</div>
+		   </div>
+	</div>
+
+	
+
+			  
+			  	   
+	  
+		   
+		   
+
+		   
+		  <div class="bus_hdr">
+		     <div class="container">
+			   <div class="row">
+				<div class="col-md-6 trip_ab">
+					<div class=" trip-a inline">
+						<label> A: </label>
+						<span class="s_font16">Kumasi, Ghana</span>
+					</div>
+					<div class="trip-icon s_font16  inline hidden-xs">
+						<i class="fa fa-long-arrow-right"></i>
+					</div>
+					<div class=" trip-b inline">
+					  <label>B: </label>
+						<span class="s_font16">Accra, Ghana</span>
+					</div>
+				</div>
+				<div class="col-md-6">
+				  <div class="pull-left trip_date">
+				   <label> Date: </label>
+				    <span class="s_font16">12-06-17</span>
+				  </div>
+					<div class="pull-right trip_modify inline">
+					  <button class="btn btn-default" style="width: 100px; border-radius: 0; border: 1px solid #338053; background-color: #4bb777; color: #fff; text-transform: uppercase;" onclick="$('#demo').toggle();">Modify</button>
+					</div>
+				</div>
+			    </div>
+			</div>
+			</div>
+		</div>
+		   
+		  <div id="demo" class="collapse" style="display: none; background:#4bb777;">	   
+		   <div class="container">
+		    <div class="search-form">				  
+				<div class="form-wrapper">
+					<form action="bus.html" method="get">
+					  <div class="col-md-3 col-sm-3 s-bus-col">
+						 <div class="form-group form-item-field-opt form-field">
+							<select id="FromCityId" name="FromCityName" class="select form-control" data-placeholder="Select Departure City">
+								<option value="">Select Departure City</option>
+								<option value="1">Accra</option>
+								<option value="2">Cape Coast</option>
+								<option value="3">Takoradi</option>
+								<option value="4">Ho</option>
+								<option value="5">Takoradi</option>
+								<option value="6">Ho</option>
+								<option value="7">Teshie</option>
+								<option value="8">Kasoa</option>
+							</select>
+						  </div>	 
+						  <a class="btn-swap text-center hidden-sm hidden-xs"></a>
+						 </div>
+
+						 <div class="col-md-3 col-sm-3 s-bus-col">								
+							<div class="form-group form-item-field-opt_1- form-field">
+								<select id="ToCityId" name="ToCityName" class="select form-control" data-placeholder="Select Arrival City">
+									<option value="">Select arrival City</option>
+									<option value="1">Accra</option>
+									<option value="2">Tema</option>
+									<option value="3">Nungua</option>
+									<option value="4">Kasoa</option>
+									<option value="5">Takoradi</option>
+									<option value="6">Ho</option>
+									<option value="7">Teshie</option>
+									<option value="8">Kasoa</option>
+								</select>
+							</div>
+						</div>
+				
+						<div class="col-md-3 col-sm-3 s-bus-col">											
+						   <div class="form-group form-field onwardDate">
+							 <input id="onwardDate" type="text" class="form-control input-br" name="onwardDate" placeholder="Departure Date" value="Departure Date">	
+						  </div>
+						</div>
+					
+						<div class="col-md-3 col-sm-3 s-bus-col">											
+						  <div class="form-group">
+							<div class="row">
+								<div class="col-xs-7 pd-r">
+								 <div class="form-field persons">
+								 <label>
+									<select id="Passengers" name="Passengers" class="form-control select2">
+										<option value="">Passengers</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="7">9</option>
+										<option value="8">10</option>
+									 </select>
+								</label>
+								  </div>
+							   </div>
+								<div class="col-xs-5 pd-l">
+								   <button class="btn btn-default btn-block btn-search" type="submit">Update</button>
+								</div>
+							</div>
+						 </div>
+						</div> 						
+					</form>	
+					</div>
+				   </div>								   
+			</div>	  		  
+		</div>	  
+		
+				   
+          <div style="margin: 10px 0;"></div>
+		    <div class="container">
+				<div class="row">
+					 <div class="col-md-12 info-text">
+						 <div class="pull-left">
+							<h3>Best schedules & fares for (
+							  <span><strong>Accra</strong></span> 
+								 to
+							  <span><strong>Kumasi</strong></span> )
+							 </h3>
+						 </div>
+						 <div class="pull-right">
+							 <div class="prevNext">
+								Departing on 
+								  <a href="#" id="prev">« prev</a>  
+									   <span class="font700">12-06-17</span> 
+								  <a href="#" id="prev">next »</a>
+							  </div>
+						 </div>
+					 </div>
+				  </div>
+				  
+				  <div id="wait"  style="display:none;position:absolute;top:35%;left:35%;padding:2px;"><img src="tools/animat-road-trip-color.gif"><p>Loading Bus Results</p></div>
+			
+	
+					<div class="sort_w">
+						<div class="row">
+							<div class="col-md-12">
+							  <div class="sort_bar">
+								  <div class="pull-left">
+									  <p>
+										 <span class="list_n">
+											<span class="font700">82</span> Buses found
+										 </span>
+									  </p>					  
+									</div>
+									<div class="pull-right">
+										<ul class="ui_sort_bar">
+											<li><strong>SORT BY:</strong></li>
+											<li><a href="#">Travels</a></li>
+											<li><a class="#">Fare</a></li>
+											<li><a class="#">Depart time</a></li>
+										</ul>		
+									</div>
+							   </div>
+							</div>
+						</div>
+					 </div>
+				
+						 <div class="result_w">
+						   <table id="tablesort" class="bus_list_disp_wrap" style="margin-bottom: 40px;">
+								<thead>
+									<tr>
+										<th>Travels</th>
+										<th>Depart - Arrive</th>
+										<th>Boarding point</th>
+										<th>Seat</th>
+										<th>Fare</th>
+									</tr>
+								</thead>							
+								<tbody>	
+									<tr>			
+										<td> 
+											<div class="travels_ag_name">
+												<h4 class="travel_Ag">Orange Tours And Travels</h4>
+												<p class="service_type">Volvo A/C Seater (2+2)</p>
+								                 <small><a href="#ratings" class="policy"  data-toggle="modal" data-target="#ratings" >Ratings & Reviews</a></small>
+											</div>
+											
+											<!-- Ratings Modal ---->
+											<div class="bus_details">
+												<div id="ratings" class="modal fade busdetails_mod">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+															  <button type="button" class="close" data-dismiss="modal">&times;</button>
+															  <h2 class="modal-title">Ratings & Reviews</h2>
+															</div>
+															<div class="modal-body">
+																<h3>Terms and Conditions</h3>
+																<p>Best schedules & fares for Best schedules & fares for Best schedules & fares for Best schedules & fares for Best schedules & fares for </p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!---- Cancellation Policy --->
+											<div id="policy" class="modal fade busdetails_mod">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+														  <button type="button" class="close" data-dismiss="modal">&times;</button>
+														  <h4 class="modal-title">Cancellation Policy/ Fare Rule</h2>
+														</div>
+														<div class="modal-body">
+															<h3>Terms and Conditions</h3>
+															<p>If you cancelled your ticket with will take 50% of your money</p>
+														</div>
+													</div>
+												</div>
+											</div>
+			
+										</td>					
+										<td> 
+											<div class="Depart_time">
+												<h4><span class="depart">7:30AM</span>
+													<span class="arrow"> - </span>
+													<span class="arrive">12:00 PM</span>
+												</h4>
+												<p class="duration">17 h 00  m</p>
+											</div>
+										</td>	
+
+										  <td> 
+											<div class="Board_point">   
+												<p style="margin-top: 5px;">Boarding Point:</p>
+												<h4 style="margin-top:0;">Circle Station</h4>						 
+											</div>
+										</td>
+										
+										<td> 
+											<div class="avail_seat">
+												<h4>32 Seats</h4>
+												<p> Available </p>
+											</div>
+										</td>
+										
+										<td>
+											<div class="fare_section">
+												<h4 class="font700">Gh&#162; <span class="price">24</span></h4>
+												  <a href="book.html" class="btn btn btn-default" role="button">Book Now</a>										  
+											</div>
+										 <p><a href="#policy" class="policy"  data-toggle="modal" data-target="#policy" >Canc. Policy</a></p>
+										</td>													
+									 </tr>
+									 
+									 
+									 <tr>			
+										<td> 
+											<div class="travels_ag_name">
+												<h4 class="travel_Ag">Orange Tours And Travels</h4>
+												<p class="service_type">Volvo A/C Seater (2+2)</p>
+								                 <small><a href="#ratings" class="policy"  data-toggle="modal" data-target="#ratings" >Ratings & Reviews</a></small>
+											</div>
+											
+											<!-- Ratings Modal ---->
+											<div class="bus_details">
+												<div id="ratings" class="modal fade busdetails_mod">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+															  <button type="button" class="close" data-dismiss="modal">&times;</button>
+															  <h2 class="modal-title">Ratings & Reviews</h2>
+															</div>
+															<div class="modal-body">
+																<h3>Terms and Conditions</h3>
+																<p>Best schedules & fares for Best schedules & fares for Best schedules & fares for Best schedules & fares for Best schedules & fares for </p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!---- Cancellation Policy --->
+											<div id="policy" class="modal fade busdetails_mod">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+														  <button type="button" class="close" data-dismiss="modal">&times;</button>
+														  <h4 class="modal-title">Cancellation Policy/ Fare Rule</h2>
+														</div>
+														<div class="modal-body">
+															<h3>Terms and Conditions</h3>
+															<p>If you cancelled your ticket with will take 50% of your money</p>
+														</div>
+													</div>
+												</div>
+											</div>
+			
+										</td>					
+										<td> 
+											<div class="Depart_time">
+												<h4><span class="depart">7:30AM</span>
+													<span class="arrow"> - </span>
+													<span class="arrive">12:00 PM</span>
+												</h4>
+												<p class="duration">17 h 00  m</p>
+											</div>
+										</td>	
+
+										  <td> 
+											<div class="Board_point">   
+												<p style="margin-top: 5px;">Boarding Point:</p>
+												<h4 style="margin-top:0;">Circle Station</h4>						 
+											</div>
+										</td>
+										
+										<td> 
+											<div class="avail_seat">
+												<h4>32 Seats</h4>
+												<p> Available </p>
+											</div>
+										</td>
+										
+										<td>
+											<div class="fare_section">
+												<h4 class="font700">Gh&#162; <span class="price">24</span></h4>
+												  <a href="book.html" class="btn btn btn-default" role="button">Book Now</a>										  
+											</div>
+										 <p><a href="#policy" class="policy"  data-toggle="modal" data-target="#policy" >Canc. Policy</a></p>
+										</td>													
+									 </tr>
+									 
+									 <tr>			
+										<td> 
+											<div class="travels_ag_name">
+												<h4 class="travel_Ag">Orange Tours And Travels</h4>
+												<p class="service_type">Volvo A/C Seater (2+2)</p>
+								                 <small><a href="#ratings" class="policy"  data-toggle="modal" data-target="#ratings" >Ratings & Reviews</a></small>
+											</div>
+											
+											<!-- Ratings Modal ---->
+											<div class="bus_details">
+												<div id="ratings" class="modal fade busdetails_mod">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+															  <button type="button" class="close" data-dismiss="modal">&times;</button>
+															  <h2 class="modal-title">Ratings & Reviews</h2>
+															</div>
+															<div class="modal-body">
+																<h3>Terms and Conditions</h3>
+																<p>Best schedules & fares for Best schedules & fares for Best schedules & fares for Best schedules & fares for Best schedules & fares for </p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!---- Cancellation Policy --->
+											<div id="policy" class="modal fade busdetails_mod">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+														  <button type="button" class="close" data-dismiss="modal">&times;</button>
+														  <h4 class="modal-title">Cancellation Policy/ Fare Rule</h2>
+														</div>
+														<div class="modal-body">
+															<h3>Terms and Conditions</h3>
+															<p>If you cancelled your ticket with will take 50% of your money</p>
+														</div>
+													</div>
+												</div>
+											</div>
+			
+										</td>					
+										<td> 
+											<div class="Depart_time">
+												<h4><span class="depart">7:30AM</span>
+													<span class="arrow"> - </span>
+													<span class="arrive">12:00 PM</span>
+												</h4>
+												<p class="duration">17 h 00  m</p>
+											</div>
+										</td>	
+
+										  <td> 
+											<div class="Board_point">   
+												<p style="margin-top: 5px;">Boarding Point:</p>
+												<h4 style="margin-top:0;">Circle Station</h4>						 
+											</div>
+										</td>
+										
+										<td> 
+											<div class="avail_seat">
+												<h4>32 Seats</h4>
+												<p> Available </p>
+											</div>
+										</td>
+										
+										<td>
+											<div class="fare_section">
+												<h4 class="font700">Gh&#162; <span class="price">24</span></h4>
+												  <a href="book.html" class="btn btn btn-default" role="button">Book Now</a>										  
+											</div>
+										 <p><a href="#policy" class="policy"  data-toggle="modal" data-target="#policy" >Canc. Policy</a></p>
+										</td>													
+									 </tr>
+									
+									 
+								</tbody>
+							</table>
+						</div>
+			
+			
+			
+			</div>
+		   
+		   
+		   
+	  
+		  
+		  
+		  
+   		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+   
+			<div id="footer" class="cmg_footer">
+				<div class="container">
+					<div class="row footer-row-pd">								
+						<div class="col-sm-12 col-xs-12 visible-sm visible-xs mobi-footer">
+				   		   <ul class="mobi-footer-list">
+								<li>
+									<a href="support.html" class="caps">Need Help ?</a>
+								</li>
+						    </ul>
+						   <p style="text-transform:uppercase;">Stay Connected</p>
+							<ul class="footer-social-list" style="margin-left: 12px;">
+								<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>									
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+							</ul>
+						</div>	
+					  </div>
+					  
+				   
+					   <div class="row hidden-sm hidden-xs">
+							<div class="col-md-3">
+								<div class="footer-info">
+									 <div class="footer-logo" style="padding-bottom: 5px;">
+										<img src="assets/images/duma_new.png" alt="" style="width: 180px;" >
+									</div>
+									<p>
+									 CarrymeGo is Ghana's No.1 travel website for Bus Ticket Booking.
+									</p>		
+									<ul class="footer-social-list">
+										<li><a href="http://facebook.com/Carrymego"><i class="fa fa-facebook-square"></i></a></li>
+										<li><a href="http://twitter.com/Carrymego"><i class="fa fa-twitter"></i></a></li>									
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>								
+								</div>
+							</div>							
+							<div class="col-md-3">
+								<h3>Company</h3>
+								<ul class="footer-links">
+									<li><a href="about.html">About Us</a></li>
+									<li><a href="terms.html">Terms of use</a></li>
+									<li><a href="privacy.html">Privacy Policy</a></li>
+									<li><a href="press.html">Press Release</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
+								</ul>
+							</div>								
+							<div class="col-md-3">
+								<h3>Support</h3>
+								<ul class="footer-links">						
+									<li><a href="faqs.html">FAQ</a></li>
+									<li><a href="payments">Payment</a></li>
+									<li><a href="agent.html">Agent Registration</a></li>
+								</ul>
+							</div>								
+							<div class="col-md-3">
+								<h3>Our Newsletter</h3>
+								 <p> Get exclusive discounts on your Bus Tickets </p>
+								  <div class="go text-center">
+									<form action="#" method="POST" class="form-inline">
+										<input type="email" class="form-control" placeholder="Enter your email..." name="sub_email" id="sub_email"/>
+										<button type="submit" class="btn btn-block btn-primary">Send</button>
+									</form>
+								</div>
+							</div>																			
+						</div>	
+					
+					 <div class="footer-bt ">
+					  <hr style="width: 100%;"/>	
+	 
+						<div class="container">
+						   <div class="row">
+								<div class="col-md-6">
+								<p class="">&#169; 2017
+									<a href="#">CertusByte, LLC.</a> 
+									<span>| All Rights Reserved</span> 
+								</p>
+								</div>
+								<div class="col-md-6hidden-sm hidden-xs">
+								 <p class=" pull-right">
+								 <img src="assets/images/pay.png" alt=""><img style="height:35px;" src="assets/images/slydepay.png"  alt="">
+								  <img style="height:35px;" src="assets/images/ssl_lock.png"  alt="">	
+								</p>
+								</div>
+							</div>
+							</div>
+						</div>						
+				</div>									
+			</div>				
+			<div id="back-to-top">
+				<div class="scrollup" style="display: block;">
+					 <i class="fa fa-angle-up"></i>
+				</div>
+			</div>
+			<div id="version">
+				<p>v 1.0 </p>
+			</div>
+			
+
+
+
+      
+
+			
+			
+   
+	    <script src="assets/js/jquery-3.2.1.min.js"></script>   
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="assets/js/select2.min.js"></script>		
+		<script type="text/javascript" src="assets/js/flatpickr.js"></script>	
+		<script type="text/javascript" src="assets/js/jquery.tablesorter.min.js"></script>	
+		<script type="text/javascript" src="https://use.fontawesome.com/7e9b3c1b49.js"></script>
+		<script type="text/javascript" src="assets/js/form.js"></script>	
+		<script type="text/javascript" src="assets/js/global.js"></script>		
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
+		
+		
+
+		
+		</body>
+</html>							
+							
+	

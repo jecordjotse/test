@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		    <meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			
+			<meta name="keywords" content="#">
+			<meta name="description" content="#">
+			<meta name="author" content="CarrymeGo">
+            <link rel="shortcut icon" href="assets/images/bus.png" type="image/x-icon" />
+
+			<title> CarryMeGo | Online Bus Ticket Booking </title>
+						<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+			<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+			<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+			<link href="assets/css/select2.min.css" rel="stylesheet" />
+			<link rel="stylesheet" href="assets/css/select2-bootstrap.min.css">				
+			<link rel="stylesheet" href="assets/css/flatpickr.css"/>
+			<link rel="stylesheet" type="text/css" href="assets/css/global.css">
+	   </head>
+
+
+		  <body>	
+			<div class="cmg_space4 cmg_bg_gradient"></div>
+				<div class="cmg_fl_nav">
+				   <div class="topnav " id="cmg_top_nav">
+						<div class="container"> 
+							 <div class="topnav-l hidden-xs" style="border-top: 1px solid #DBDBDB;">
+								<ul class="top_nav-list">
+									<li class="tn_li_mar_gin">
+									  Help
+									 </li>
+									<li class="tn_li_mar_gin">
+									   <a href="tel:233 502 123 456"><i class="fa fa-phone"></i>&nbsp;+233 502 123 456</a>
+									</li> 
+									<li class="tn_li_mar_gin">
+									   <a href="mailto:info@carrymego.com"><i class="fa fa-envelope"></i>&nbsp;info@carrymego.com</a>
+									</li>
+								</ul>
+							</div>
+							<div class="topnav-r" >	
+							  <ul class="top_nav-list">
+								<li class="tn_li_mar_gin">
+									<i class="fa fa-user"></i><a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"> Sign Up </a>&nbsp;
+									 <span style="color:#333;">|</span>
+								</li>
+								<li class="tn_li_mar_gin">
+                                   <i class="fa fa-sign-in"></i><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"> Sign In</a>
+								</li>					
+							</ul>
+						</div>
+					</div>
+				 </div>		
+		 
+				 <nav class="navbar c-navbar">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						<div class="logo">
+							<a class="navbar-brand" href="home1.html">
+							   <img class="img-responsive" src="assets/images/logo.png" alt="Carrymego.com">
+							 </a> 
+						</div>
+						</div>
+						<div class="collapse navbar-collapse" id="mainNav">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="sr-only active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+								<li class="active"><a href="TicketStatus.html">Ticket Status</a></li>
+								<li><a href="PrintTicket.html">Print/SMS Ticket</a></li>
+								<li class="active"><a href="CancelTicket.html">Cancel Ticket</a></li>							
+							</ul>
+						</div>
+					</div>
+				</nav>
+		   </div>	
+   
+	      <div class="modal fade login" id="loginModal" role="dialog">
+			<div class="modal-dialog">
+				 <!-- Modal content-->
+				 <button type="button" class="close_left" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<div class="registerBox">
+						 <form action="#" method="POST" id="signup">
+							<div class="signup-block">
+								<h1> Sign Up </h1>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="Email"  placeholder="Email" required="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" name="password" placeholder="Password" required="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" required="">
+								</div>
+								<p class="message">By creating an account you agree to our <a href="terms.html">Terms and Conditions</a> and our <a href="privacy.html">Privacy Policy</a></p>
+								<button type="submit"  class="btn btn-block btn-signin">Create my account</button>
+								<br />
+								<p class="message">Already have an account? <a href="javascript: showLoginForm();">&nbsp;Sign In</a></p>
+							</div>
+						</form>
+				   </div>				
+					<div class="loginBox" style="display: none;"> 
+					 <form method="POST" action="#" id="login">
+						<div class="signup-block">
+							<h1> Sign In </h1>
+							<div class="form-group">
+								<input type="email" class="form-control"  name="userEmail"  placeholder="Email" id="userEmail" required="">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" name="password" placeholder="Password" id="password" required="">
+							</div>
+							<button type="submit"  class="btn btn-block btn-signin">Sign In</button>
+							<br />
+							<p class="message"><a href="javascript: showRecoverForm();">Forgot your password?</a></p>
+							<p class="message">Not registered? <a href="javascript: showRegisterForm();">&nbsp;Create an account</a></p>
+						</div>
+					</form>
+				  </div>
+			  
+				  <div class="recoverBox" style="display: none;">
+					<form method="POST" action="#" id="forgotpass">
+					  <div class="signup-block">
+						<h1> Forgot Password</h1>
+						<div class="form-group">
+							<input type="email" class="form-control" name="userEmail" placeholder="Enter Email" id="Email" required="" />
+						</div>
+						<button type="submit" class="btn btn-block btn-signin">Send Email</button>
+						<p class="message">We will send you a link to reset your password</p>
+						<br />
+						<p class="message">Already have an account? <a href="javascript: showLoginForm();">&nbsp;Sign In</a></p>
+					 </div>
+					</form>
+				</div>
+		   </div>
+	</div>
+
+	  <div class="container">
+	            <div class="checkout-nav">
+					  <nav class="ck-navigation" style="height:70px;">
+						<ul class="ck-navigation-list">
+							<li class="ck-navigation-section completed">
+								<div class="ck-navigation-section-title">Select Journey</div>
+							</li>
+							<li class="ck-navigation-section completed">
+								<div class="ck-navigation-section-title">Complete Details</div>
+							</li>
+							<li class="ck-navigation-section active">
+								<div class="ck-navigation-section-title">Payment</div>
+							</li>
+						</ul>
+					  </nav>
+				   </div>
+				</div>
+				   
+				<!--   
+				  <div class="container">
+					<div class="pay_tab">
+						<div class="horizontalTab"  style="display: block; width: 100%; margin: 0px;">
+						  <div class="pay_tab_wrap">
+				           <h2> Choose your payments method</h2>
+						     <ul class="pay_tab_list">
+								<li class="pay_tab_item"><span><label class="pic1"></label>SlydePay</span></li>
+								<li class="pay_tab_item"><span><label class="pic2"></label>Pay later</span></li>
+							</ul>
+						</div>
+					</div>
+				  </div>
+				</div>
+				   
+				   
+				  
+
+	-->
+			 <div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="pay_tab">
+						     <div class="alert alert-info"><i class="fa fa-info-circle"></i>
+							    Transactions on this site are safe and secured as indicated by the secure lock
+							  </div>
+						     <h3>Please select a payment method</h3>
+						     
+							 <div class="panel-group pay-panel" id="accordion">
+								
+								<div class="panel panel-default" id="pay_panel">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											 <span class="accordion-toggle"  href="#Slydepay" data-toggle="collapse" data-parent="#accordion">
+												<!--<span>SlydePay <img class="slydepay-logo" src="assets/imges/slydepay.png"></span>-->												
+											
+											  <input type="radio" id="radio1" name="radio1"/>
+                                              <label for="radio1">SlydePay</label>
+
+											
+											</span>
+										</h4>
+									</div>
+									<div id="Slydepay" class="panel-collapse collapse">
+										<div class="panel-body">
+									    	<div class="paymentSlydepay">
+												<div class="inner">
+														<h5 style="font-size: 17px; margin-bottom: 15px; color: #F56961; font-weight: 500;">Amount to be paid is: Ghc 24.00</h5>
+														<p>
+														  You must pay using your personal mobile money or the nearest mobile money agent store by the Ticketing time Limit specified to the number <span class="font500">026272772</span> to complete booking.
+														  </p>
+														<p>
+														   After clicking 'Book Now' you  will be redirected to Slydepay's website to complete payment You must complete the process or the booking will not occur .Afterwards you will be redirected to us again. 
+														</p>
+					     					    </div>									
+											</div>
+										</div>
+									</div>								
+							   </div>
+						     
+							 <div class="panel panel-default" id="pay_panel">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											 <a class="accordion-toggle"  href="#pay-later" data-toggle="collapse" data-parent="#accordion">
+												<input type="radio" id="radio2" name="radio1"/>
+                                                <label for="radio2">Pay later</label>
+											</a>
+										</h4>
+									</div>
+									<div id="pay-later" class="panel-collapse collapse">
+										<div class="panel-body">
+									    	<div class="paymentPaylater">
+												<div class="inner">
+													<h5 style="font-size: 17px; margin-bottom: 15px; color: #F56961; font-weight: 500;">Amount to be paid is: Ghc 24.00</h5>
+													<p>
+													  You must pay using your personal mobile money or the nearest mobile money agent store by the Ticketing time Limit specified to the number <span class="font500">026272772</span> to complete booking.
+													  </p>
+													<p>
+													   After clicking 'Book Now' you have 6 hours to complete payment .<strong>You must complete the process or the booking will not occur.</strong> Afterwards you can check the status of your Ticket to confirm payment
+													</p>
+												</div>
+											 </div>		
+										</div>
+									</div>								
+							   </div>
+						
+						
+						  </div>
+									
+											
+											
+												
+						
+						</div>
+					
+					
+					
+					</div>
+					
+					
+				<div class="col-md-4">					
+					<div class="panel panel-default" style="border-radius: 0;border-color: 1px solid #c9c9c9; border-width: 3px;">
+						   <div class="panel-heading" style="background-color: #fff;">
+							  <h4> Booking Summary</h4>
+							</div>
+							<div class="panel-body">
+									<ul class="journey_summary_list">
+										<li>
+											<div class="row">
+												<div class="col-xs-4 col-sm-4">Full Name:</div>
+												<div class="col-xs-8 col-sm-8 text-right font500">Cephas Cephyo</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-xs-4 col-sm-4">Age:</div>
+												<div class="col-xs-8 col-sm-8 text-right font500">18</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-xs-4 col-sm-4">Gender:</div>
+												<div class="col-xs-8 col-sm-8 text-right font500">Male</div>
+											</div>
+										</li>
+										
+										<li>
+											<div class="row">
+												<div class="col-xs-4 col-sm-4">Phone No:</div>
+												<div class="col-xs-8 col-sm-8 text-right font500">0243526728</div>
+											</div>
+										</li>
+										
+										<li>
+											<div class="row">
+												<div class="col-xs-4 col-sm-4">Email:</div>
+												<div class="col-xs-8 col-sm-8 text-right font500">runmarble@gmail.com</div>
+											</div>
+										</li>
+										
+									<div style="border-bottom: 1px solid #c9c9c9; width: %100; margin-left: -15px; margin-right: -15px;"></div>
+									
+									<li>
+											<div class="row">
+												<div class="col-xs-4 col-sm-4">Journey:</div>
+												<div class="col-xs-8 col-sm-8 text-right font500">Accra - Kumasi </div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-xs-4 col-sm-4">Travel:</div>
+												<div class="col-xs-8 col-sm-8 text-right font500">Cosbak Travels</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-xs-4 col-sm-4">Bus Type:</div>
+												<div class="col-xs-8 col-sm-8 text-right font500">Volvo AC/ Sleeper</div>
+											</div>
+										</li>
+										<li>
+											<div class="row">
+												<div class="col-xs-5 col-sm-5">Pickup Point:</div>
+												<div class="col-xs-7 col-sm-7 text-right font500">Circle Station</div>
+											</div>
+										</li>
+										
+										<li>
+											<div class="row">
+												<div class="col-xs-4 col-sm-4">Depart:</div>
+												<div class="col-xs-8 col-sm-8 text-right font500">10:00 AM</div>
+											</div>
+										</li>
+										
+										<li>
+											<div class="row">
+												<div class="col-xs-7 col-sm-7">Number of Travellers:</div>
+												<div class="col-xs-5 col-sm-5 text-right font500">2</div>
+											</div>
+										</li>
+									</ul>			  
+							</div>				 
+							<div class="panel-footer" style="background-color:#f8f8f8; border-top: 0;">
+							   <div class="row">
+								   <div class="col-xs-4 col-md-6">
+									 <h3>Total</h3>
+								  </div>
+								  <div class="col-xs-8 col-md-6 text-right">
+									 <h3 style="color: #e6a337;">GH&#162;<span>20.00</span></h3>
+								  </div>
+							  </div>
+							</div>
+			         </div>				
+				</div>		
+			</div>
+		</div>
+					
+	
+	
+	
+	
+	<div id="footer" class="cmg_footer">
+				<div class="container">
+					<div class="row footer-row-pd">								
+						<div class="col-sm-12 col-xs-12 visible-sm visible-xs mobi-footer">
+							<a class="supportNumber" href="+233320939">+2335402883</a>
+							<ul class="mobi-footer-list">
+								<li>
+									<a href="about.html" class="caps">About Us</a>
+								</li>
+								<li>
+									<a href="support.html" class="caps">Support</a>
+								</li>
+						   </ul>
+						   <p style="text-transform:uppercase;">Stay Connected</p>
+							<ul class="footer-social-list" style="margin-left: 12px;">
+								<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>									
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+							</ul>
+						</div>	
+					  </div>
+					  
+				   
+					   <div class="row hidden-sm hidden-xs">
+							<div class="col-md-3">
+								<div class="footer-info">
+									 <div class="footer-logo" style="padding-bottom: 5px;">
+										<img src="img/duma_new.png" alt="" style="width: 180px;" >
+									</div>
+									<p>
+									 CarrymeGo is Ghana's No.1 travel website for Bus Ticket Booking.
+									</p>		
+									<ul class="footer-social-list">
+										<li><a href="http://facebook.com/Carrymego"><i class="fa fa-facebook-square"></i></a></li>
+										<li><a href="http://twitter.com/Carrymego"><i class="fa fa-twitter"></i></a></li>									
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>								
+								</div>
+							</div>							
+							<div class="col-md-3">
+								<h3>Company</h3>
+								<ul class="footer-links">
+									<li><a href="about.html">About Us</a></li>
+									<li><a href="terms.html">Copyright</a></li>
+									<li><a href="terms.html">Terms of use</a></li>
+									<li><a href="terms.html">Privacy Policy</a></li>
+									<li><a href="refer.html">Refer a friend</a></li>
+								</ul>
+							</div>								
+							<div class="col-md-3">
+								<h3>Support</h3>
+								<ul class="footer-links">						
+									<li><a href="faq">FAQ</a></li>
+									<li><a href="#">Payment</a></li>
+									<li><a href="#">Community</a></li>
+									<li><a href="#">Refund Policy</a></li>
+									<li><a href="contact.html">Feedback</a></li>
+								</ul>
+							</div>								
+							<div class="col-md-3">
+								<h3>Our Newsletter</h3>
+								 <p> Get exclusive discounts on your Bus Tickets </p>
+								  <div class="go text-center">
+									<form action="#" method="POST" role="form" class="form-inline"  style="max-width: 500px; margin: 0 auto;">
+										<input type="email" class="form-control" placeholder="Enter your email..." name="sub_email" id="sub_email"/>
+										<button type="submit" class="btn btn-block btn-primary ripple">Send</button>
+									</form>
+								</div>
+							</div>																			
+						</div>	
+					
+					 <div class="footer-bt">
+						<hr>				 
+						<div class="container">
+							<p class="pull-left">Copyright &#169; 2017
+								<a href="#" style="color: #e6a337;">CertusByte, LLC.</a> | All Rights Reserved 
+							</p>									
+							<p class="pull-right">
+							 Payment methods accepted <img src="img/pay.png" alt="">	
+							</p>
+						</div>	
+					  </div>					
+				</div>									
+			</div>	
+
+			<div id="back-to-top">
+				<div class="scrollup" style="display: block;">
+					 <i class="fa fa-angle-up"></i>
+				</div>
+			</div>
+			<div id="version">
+				<p>v 1.0 </p>
+			</div>
+			
+
+
+
+      
+
+			
+			
+   
+	    <script src="assets/js/jquery-3.2.1.min.js"></script>   
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="assets/js/select2.min.js"></script>		
+		<script type="text/javascript" src="assets/js/flatpickr.js"></script>	
+		<script type="text/javascript" src="https://use.fontawesome.com/7e9b3c1b49.js"></script>
+		<script type="text/javascript" src="assets/js/form.js"></script>	
+		<script type="text/javascript" src="assets/js/global.js"></script>		
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
+		
+		
+
+		
+		</body>
+</html>							
+	

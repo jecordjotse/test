@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		    <meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			
+			<meta name="keywords" content="#">
+			<meta name="description" content="#">
+			<meta name="author" content="CarrymeGo">
+            <link rel="shortcut icon" href="assets/images/bus.png" type="image/x-icon" />
+
+			<title> CarryMeGo | Online Bus Ticket Booking </title>
+			
+			<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+			<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="assets/css/global.css">
+			<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	   </head>
+
+
+		  <body>	
+			<div class="cmg_space4 cmg_bg_gradient"></div>
+				<div class="cmg_fl_nav">
+				   <div class="topnav " id="cmg_top_nav">
+						<div class="container"> 
+							 <div class="topnav-l hidden-xs" style="border-top: 1px solid #DBDBDB;">
+								<ul class="top_nav-list">
+									<li class="tn_li_mar_gin">
+									  Help
+									 </li>
+									<li class="tn_li_mar_gin">
+									   <a href="tel:233 502 123 456"><i class="fa fa-phone"></i>&nbsp;+233 502 123 456</a>
+									</li> 
+									<li class="tn_li_mar_gin">
+									   <a href="mailto:info@carrymego.com"><i class="fa fa-envelope"></i>&nbsp;info@carrymego.com</a>
+									</li>
+								</ul>
+							</div>
+							<div class="topnav-r" >	
+							  <ul class="top_nav-list">
+								<li class="tn_li_mar_gin">
+									<i class="fa fa-user"></i><a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"> Sign Up </a>&nbsp;
+									 <span style="color:#333;">|</span>
+								</li>
+								<li class="tn_li_mar_gin">
+                                   <i class="fa fa-sign-in"></i><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"> Sign In</a>
+								</li>					
+							</ul>
+						</div>
+					</div>
+				 </div>		
+		 
+				 <nav class="navbar c-navbar">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						<div class="logo">
+							<a class="navbar-brand" href="index.html">
+							   <img class="img-responsive" src="assets/images/logo.png" alt="Carrymego.com">
+							 </a> 
+						</div>
+						</div>
+						<div class="collapse navbar-collapse" id="mainNav">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="sr-only active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+								<li class="active"><a href="TicketStatus.html">Ticket Status</a></li>
+								<li><a href="PrintTicket.html">Print/SMS Ticket</a></li>
+								<li class="active"><a href="CancelTicket.html">Cancel Ticket</a></li>							
+							</ul>
+						</div>
+					</div>
+				</nav>
+		   </div>	
+   
+	      <div class="modal fade login" id="loginModal" role="dialog">
+			<div class="modal-dialog">
+				 <!-- Modal content-->
+				 <button type="button" class="close_left" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<div class="registerBox">
+						 <form action="#" method="POST" id="signup">
+							<div class="signup-block">
+								<h1> Sign Up </h1>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="Email"  placeholder="Email" required="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" name="password" placeholder="Password" required="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" required="">
+								</div>
+								<p class="message">By creating an account you agree to our <a href="terms.html">Terms and Conditions</a> and our <a href="privacy.html">Privacy Policy</a></p>
+								<button type="submit"  class="btn btn-block btn-signin">Create my account</button>
+								<br />
+								<p class="message">Already have an account? <a href="javascript: showLoginForm();">&nbsp;Sign In</a></p>
+							</div>
+						</form>
+				   </div>				
+					<div class="loginBox" style="display: none;"> 
+					 <form method="POST" action="#" id="login">
+						<div class="signup-block">
+							<h1> Sign In </h1>
+							<div class="form-group">
+								<input type="email" class="form-control"  name="userEmail"  placeholder="Email" id="userEmail" required="">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" name="password" placeholder="Password" id="password" required="">
+							</div>
+							<button type="submit"  class="btn btn-block btn-signin">Sign In</button>
+							<br />
+							<p class="message"><a href="javascript: showRecoverForm();">Forgot your password?</a></p>
+							<p class="message">Not registered? <a href="javascript: showRegisterForm();">&nbsp;Create an account</a></p>
+						</div>
+					</form>
+				  </div>
+			  
+				  <div class="recoverBox" style="display: none;">
+					<form method="POST" action="#" id="forgotpass">
+					  <div class="signup-block">
+						<h1> Forgot Password</h1>
+						<div class="form-group">
+							<input type="email" class="form-control" name="userEmail" placeholder="Enter Email" id="Email" required="" />
+						</div>
+						<button type="submit" class="btn btn-block btn-signin">Send Email</button>
+						<p class="message">We will send you a link to reset your password</p>
+						<br />
+						<p class="message">Already have an account? <a href="javascript: showLoginForm();">&nbsp;Sign In</a></p>
+					 </div>
+					</form>
+				</div>
+		   </div>
+	</div>
+
+     	<!--
+	            <div class="checkout-nav">
+					  <nav class="ck-navigation" style="height:70px;">
+						<ul class="ck-navigation-list">
+							<li class="ck-navigation-section completed">
+								<div class="ck-navigation-section-title">Select Journey</div>
+							</li>
+							<li class="ck-navigation-section active">
+								<div class="ck-navigation-section-title">Complete Details</div>
+							</li>
+							<li class="ck-navigation-section">
+								<div class="ck-navigation-section-title">Payment</div>
+							</li>
+						</ul>
+					  </nav>
+				   </div>
+			
+		-->		   
+			   
+				   
+				   
+				   <div class="container">
+				   <div class="text-center pull-right">
+						<div class="time_wrap text-center">
+							<p>Time left to checkout</p>
+							<h4 style="background-color: #f9f9f9;">00:29:31</h4>
+						</div>			
+                   </div>						
+				   </div>
+				   
+				   
+	
+	
+	<div class="container">
+		<div class="breadcrumbs">
+				<div class="inner">
+					<ul class="cf">
+						<li>
+							<a>
+								<span><i class="fa fa-check"></i></span>
+								<span>Select</span>
+							</a>
+						</li>
+						<li>
+							<a class="active">
+								<span>2</span>
+								<span>Book</span>
+							</a>
+						</li>
+						<li>
+							<a>
+								<span>3</span>
+								<span>Done</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+				 	
+			<div class="row checkout_1" style="margin-bottom: 50px;">				
+	           <div class="content-wrapper">		   
+				   <div class="col-md-4 visible-sm visible-xs">
+						<div class="panel panel-default" style="border-radius: 0;border-color: 1px solid #c9c9c9; border-width: 3px;">
+							   <div class="panel-heading" style="background-color: #fff;">
+								  <h4> Booking Summary</h4>
+
+								</div>
+								<div class="panel-body">
+
+								<ul class="journey_summary_list">
+									<li>
+										<div class="journey_info">
+											<h4><i class="fa fa-map-marker"></i>&nbsp;&nbsp; Accra to Kumasi</h4>
+										</div>
+									</li>
+									
+									<li>
+										<div class="journey_info">
+											<h4><i class="fa fa-bus"></i>&nbsp; Cosbak Travels & Tours</h4> 
+											 2+2, Multi Axle Volvo 						
+										 </div>
+									</li>
+									
+									<li>
+										<div class="journey_info"> 
+										   <h4><i class="fa fa-calendar"></i>&nbsp; Monday, March 7, 2016 </h4>
+										 </div>
+									</li>
+									<li>
+										<div class="journey_info">
+										   PickUp:							
+										  <h4> Tema Station</h4>
+										   <span class="font500">6:00 AM</span>
+										</div>
+									</li>
+								</ul>
+				
+							<div style="border-bottom: 1px solid #c9c9c9; width: %100; margin-left: -15px; margin-right: -15px;"></div>
+								
+							 <ul class="price_summary_list">
+								<div class="price_summary">				    
+								   <li><h4>Price Per Person</h4></li>
+										<li>
+											<div class="row">
+												<div class="col-xs-7 col-sm-7">Bus fare</div>
+												<div class="col-xs-5 col-sm-5 text-right">&#162;20.00</div>
+											</div>										
+											<div class="row">
+												<div class="col-xs-7 col-sm-7">Service Charge</div>
+												<div class="col-xs-5 col-sm-5 text-right">&#162;0.00</div>
+											</div>		
+										</li>
+										<li class="divider"></li>							                    						 
+										<li>
+										   <div class="row">
+												<div class="col-xs-7 col-sm-7 font500">No of Travellers</div>
+												<div class="col-xs-5 col-sm-5 text-right font500">1 x &#162;20.00</div>
+											</div>
+										</li> 
+								 </div>
+							</ul>				  
+						</div>
+						 
+						 <div class="panel-footer" style="background-color:#f8f8f8; border-top: 0;">
+							  <div class="row">
+							   <div class="col-xs-4 col-md-6">
+								 <h3>Total</h3>
+							  </div>
+							  <div class="col-xs-8 col-md-6 text-right">
+								 <h3 style="color: #e6a337;">GH&#162;<span>20.00</span></h3>
+							  </div>
+							</div>
+						  </div>
+
+						 </div>
+					</div>
+			   
+			   
+			   
+			   
+				  <div class="col-md-8  passenger_info_wrap" style="padding-left: 2em;">		
+					    <div class="passenger-info-content" style="padding-left: 40px;padding-right: 15px;">
+						    <div class="passenger-info">						
+								  <form action="confirm.html" method="post">									   
+									   <div class="step one row" data-item="1">
+									       <h4>Passenger Information</h4>
+										      <div class="col-md-12">
+											     <div class="form-group">
+												    <label for="LastName">Full Name:</label>
+												    <input type="text" class="form-control pax" name="passenger_name" id="" placeholder="" >
+											    </div>
+										     </div>													
+									         <div class="col-md-6 gender">
+										        <div class="form-group">
+											       <label> Gender</label>
+											          <ul class="gender-list">										
+											        	 <li>								
+															
+															<input type="radio" id="male_gender_select" name="gender_select_group" value="M" checked>
+															<label for="male_gender_select">Male </label>
+														 </li>
+														 <li class="mar_L20">										
+															
+															<input type="radio" id="female_gender_select" name="gender_select_group" value="F">
+															<label for="female_gender_select">Female</label>
+														 </li>													
+													</ul>																								  
+												</div>
+											</div>													 
+											  <div class="col-md-6">
+												   <div class="form-group">
+														<label for="InputName">Age:</label>
+														<input type="number" class="form-control" name="passenger_age" maxlength="2">
+													</div>
+											  </div>											
+									   </div>
+										   																	
+										 <div class="step one row" data-item="2">
+											<h4>Contact Details</h4>
+											   <div class="col-md-12">
+												  <div class="form-group">
+													   <label for="InputName">Email Address:</label>
+														<input type="email" class="form-control email" name="Email" id="Email" value="" >
+												   </div>
+												</div>														
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label" for="InputName">Phone Number:</label>
+														<input type="tel" class="form-control phone" name="InputName" id="InputName" value="" maxlength="10">
+													</div>
+											   </div>											
+										   </div>
+										   
+										   
+										   
+										   <div class="step one row" data-item="3">
+											   <h4>Payment Method <small>/ <i class="fa fa-lock"></i> secure</small></h4>
+											   <p> Please select your preferred payment method</p>
+											   	<div class="alert alert-info alert-dismissable" role="alert">  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><i class="fa fa-info-circle"></i> SAFE AND SECURE: Your information is protected by SSL encryption</div>
+												
+												<div class="col-md-12 pay_tab">
+													<div class="paymentSlydepay">
+													    <input type="radio" id="payments1" name="payments"  value="paymentSlydepay">
+                                                        <label for="payments1"><span>Slydepay </span> <br> <img class="slydepay-logo" src="assets/images/pay_with_slydepay.png"></label>					
+													</div>												
+													<div id="paymentSlydepay" class="payment_box">
+														<h5>Total Amount to be paid: Ghc20</h5>
+														<p>You will be directed to Slydepay to complete payment. <strong>You must complete the process or the booking will not occur</strong>. Afterwards you will be redirected to us again.</p>												  
+												   </div>								  
+											   </div>
+											   
+											   
+											   <div class="col-md-12 pay_tab">	
+													<div class="paymentPaylater">
+													    <input type="radio" id="payments2" name="payments" value="paymentPaylater">
+                                                        <label for="payments2">Pay later</label>
+													</div>
+													 <div id="paymentPaylater" class="payment_box">
+														<h5>Total Amount to be paid: Ghc20</h5>
+													     <p>You must pay using your personal mobile money or the nearest mobile money agent store by the Ticketing time Limit specified to the number <span class="font500">026272772</span> to complete booking.</p>
+													</div>													
+											  </div>																																																																																			
+										 </div>
+											
+									
+											<div class="row">
+												<div class="col-sm-12">
+												   <div class="form-check">
+													  <label class="form-check-label">
+														   <input type="checkbox" class="form-check-input" id="checkboxSuccess" value="option1" >														
+														    I have READ and ACCEPT the <a href="#"> Terms and Conditions</a>
+													    </label>
+													 </div>
+												</div>
+												
+												<div class="col-sm-12">
+												<hr>
+													<button class=" btn btn-default booking-complete-btn" style="background-color: #e6a337;border-color: #e6a337;color: #fff;font-size: 16px;"><i class="fa fa-lock"></i> PROCEED TO PAY</button>
+												    <p> Please make sure to check your details for accuracy </p>
+												</div>
+											 </div>				
+								    </form>
+							  </div>
+						 </div>
+					</div>
+										  
+										 
+				<div class="col-md-4 hidden-sm hidden-xs">
+					<div class="panel panel-default" style="border-radius: 0;border-color: 1px solid #c9c9c9; border-width: 3px;">
+						   <div class="panel-heading" style="background-color: #fff;">
+							  <h4> Booking Summary</h4>
+
+							</div>
+							<div class="panel-body">
+
+							<ul class="journey_summary_list">
+								<li>
+									<div class="journey_info">
+										<h4><i class="fa fa-map-marker"></i>&nbsp;&nbsp; Accra to Kumasi</h4>
+									</div>
+								</li>
+								
+								<li>
+									<div class="journey_info">
+										<h4><i class="fa fa-bus"></i>&nbsp; Cosbak Travels & Tours</h4> 
+										 2+2, Multi Axle Volvo 						
+									 </div>
+								</li>
+								
+								<li>
+									<div class="journey_info"> 
+									   <h4><i class="fa fa-calendar"></i>&nbsp; Monday, March 7, 2016 </h4>
+									 </div>
+								</li>
+								<li>
+									<div class="journey_info">
+									   PickUp:							
+									  <h4> Tema Station</h4>
+									   <span class="font500">6:00 AM</span>
+									</div>
+								</li>
+							</ul>
+			
+						<div style="border-bottom: 1px solid #c9c9c9; width: %100; margin-left: -15px; margin-right: -15px;"></div>
+							
+						 <ul class="price_summary_list">
+							<div class="price_summary">				    
+							   <li><h4>Price Per Person</h4></li>
+									<li>
+										<div class="row">
+											<div class="col-xs-7 col-sm-7">Bus fare</div>
+											<div class="col-xs-5 col-sm-5 text-right">&#162;20.00</div>
+										</div>										
+										<div class="row">
+											<div class="col-xs-7 col-sm-7">Service Charge</div>
+											<div class="col-xs-5 col-sm-5 text-right">&#162;0.00</div>
+										</div>		
+									</li>
+									<li class="divider"></li>							                    						 
+									<li>
+									   <div class="row">
+											<div class="col-xs-7 col-sm-7 font500">No of Travellers</div>
+											<div class="col-xs-5 col-sm-5 text-right font500">1 x &#162;20.00</div>
+										</div>
+									</li> 
+							 </div>
+						</ul>				  
+					</div>
+					 
+					 <div class="panel-footer" style="background-color:#f8f8f8; border-top: 0;">
+						  <div class="row">
+						   <div class="col-xs-4 col-md-6">
+							 <h3>Total</h3>
+						  </div>
+						  <div class="col-xs-8 col-md-6 text-right">
+							 <h3 style="color: #e6a337;">GH&#162;<span>20.00</span></h3>
+						  </div>
+						</div>
+					  </div>
+
+			         </div>
+    			</div>
+			</div>
+		 </div>
+	</div>
+
+	
+	
+	
+	<div id="footer" class="cmg_footer">
+				<div class="container">
+					<div class="row footer-row-pd">								
+						<div class="col-sm-12 col-xs-12 visible-sm visible-xs mobi-footer">
+				   		   <ul class="mobi-footer-list">
+								<li>
+									<a href="support.html" class="caps">Need Help ?</a>
+								</li>
+						    </ul>
+						   <p style="text-transform:uppercase;">Stay Connected</p>
+							<ul class="footer-social-list" style="margin-left: 12px;">
+								<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>									
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+							</ul>
+						</div>	
+					  </div>
+					  
+				   
+					   <div class="row hidden-sm hidden-xs">
+							<div class="col-md-3">
+								<div class="footer-info">
+									 <div class="footer-logo" style="padding-bottom: 5px;">
+										<img src="assets/images/duma_new.png" alt="" style="width: 180px;" >
+									</div>
+									<p>
+									 CarrymeGo is Ghana's No.1 travel website for Bus Ticket Booking.
+									</p>		
+									<ul class="footer-social-list">
+										<li><a href="http://facebook.com/Carrymego"><i class="fa fa-facebook-square"></i></a></li>
+										<li><a href="http://twitter.com/Carrymego"><i class="fa fa-twitter"></i></a></li>									
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>								
+								</div>
+							</div>							
+							<div class="col-md-3">
+								<h3>Company</h3>
+								<ul class="footer-links">
+									<li><a href="about.html">About Us</a></li>
+									<li><a href="terms.html">Terms of use</a></li>
+									<li><a href="privacy.html">Privacy Policy</a></li>
+									<li><a href="press.html">Press Release</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
+								</ul>
+							</div>								
+							<div class="col-md-3">
+								<h3>Support</h3>
+								<ul class="footer-links">						
+									<li><a href="faqs.html">FAQ</a></li>
+									<li><a href="payments">Payment</a></li>
+									<li><a href="agent.html">Agent Registration</a></li>
+								</ul>
+							</div>								
+							<div class="col-md-3">
+								<h3>Our Newsletter</h3>
+								 <p> Get exclusive discounts on your Bus Tickets </p>
+								  <div class="go text-center">
+									<form action="#" method="POST" class="form-inline">
+										<input type="email" class="form-control" placeholder="Enter your email..." name="sub_email" id="sub_email"/>
+										<button type="submit" class="btn btn-block btn-primary">Send</button>
+									</form>
+								</div>
+							</div>																			
+						</div>	
+					
+					 <div class="footer-bt ">
+					  <hr style="width: 100%;"/>	
+	 
+						<div class="container">
+						   <div class="row">
+								<div class="col-md-6">
+								<p class="">&#169; 2017
+									<a href="#">CertusByte, LLC.</a> 
+									<span>| All Rights Reserved</span> 
+								</p>
+								</div>
+								<div class="col-md-6hidden-sm hidden-xs">
+								 <p class=" pull-right">
+								 <img src="assets/images/pay.png" alt=""><img style="height:35px;" src="assets/images/slydepay.png"  alt="">
+								  <img style="height:35px;" src="assets/images/ssl_lock.png"  alt="">	
+								</p>
+								</div>
+							</div>
+							</div>
+						</div>						
+				</div>									
+			</div>				
+			<div id="back-to-top">
+				<div class="scrollup" style="display: block;">
+					 <i class="fa fa-angle-up"></i>
+				</div>
+			</div>
+			<div id="version">
+				<p>v 1.0 </p>
+			</div>
+			
+
+
+
+      
+
+			
+			
+   
+	    <script src="assets/js/jquery-3.2.1.min.js"></script>   
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="assets/js/select2.min.js"></script>		
+		<script type="text/javascript" src="assets/js/flatpickr.js"></script>	
+		<script type="text/javascript" src="https://use.fontawesome.com/7e9b3c1b49.js"></script>
+		<script type="text/javascript" src="assets/js/form.js"></script>	
+		<script type="text/javascript" src="assets/js/global.js"></script>		
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
+		<script>
+		
+		$("div.payment_box").hide();
+		
+		$("input[name$='payments']").on("click",function() {
+				var test = $(this).val();
+				$("div.payment_box").hide();
+				$("#" + test).show();
+		});
+		
+		</script>
+		
+		
+
+		
+		</body>
+</html>							
+	

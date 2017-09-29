@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		    <meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			
+			<meta name="keywords" content="#">
+			<meta name="description" content="#">
+			<meta name="author" content="CarrymeGo">
+            <link rel="shortcut icon" href="assets/images/bus.png" type="image/x-icon" />
+
+			<title> CarryMeGo | Online Bus Ticket Booking </title>
+			
+			<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+			<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="assets/css/global.css">
+			<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	   </head>
+
+
+		  <body>	
+			<div class="cmg_space4 cmg_bg_gradient"></div>
+				<div class="cmg_fl_nav">
+				   <div class="topnav " id="cmg_top_nav">
+						<div class="container"> 
+							 <div class="topnav-l hidden-xs">
+								<ul class="top_nav-list">
+									<li class="tn_li_mar_gin">
+									  Help
+									 </li>
+									<li class="tn_li_mar_gin">
+									   <a href="tel:233 502 123 456"><i class="fa fa-phone"></i>&nbsp;+233 502 123 456</a>
+									</li> 
+									<li class="tn_li_mar_gin">
+									   <a href="mailto:info@carrymego.com"><i class="fa fa-envelope"></i>&nbsp;info@carrymego.com</a>
+									</li>
+								</ul>
+							</div>
+							<div class="topnav-r" >	
+							  <ul class="top_nav-list">
+								<li class="tn_li_mar_gin">
+									<i class="fa fa-user"></i><a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"> Sign Up </a>&nbsp;
+									 <span>|</span>
+								</li>
+								<li class="tn_li_mar_gin">
+                                   <i class="fa fa-sign-in"></i><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"> Sign In</a>
+								</li>					
+							</ul>
+						</div>
+					</div>
+				 </div>		
+		 
+				 <nav class="navbar c-navbar">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						<div class="logo">
+							<a class="navbar-brand" href="index.html">
+							   <img class="img-responsive" src="assets/images/logo.png" alt="Carrymego.com">
+							 </a> 
+						</div>
+						</div>
+						<div class="collapse navbar-collapse" id="mainNav">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="sr-only active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
+								<li class="active"><a href="TicketStatus.html">Ticket Status</a></li>
+								<li><a href="PrintTicket.html">Print/SMS Ticket</a></li>
+								<li class="active"><a href="CancelTicket.html">Cancel Ticket</a></li>							
+							</ul>
+						</div>
+					</div>
+				</nav>
+		   </div>	
+   
+	      <div class="modal fade login" id="loginModal" role="dialog">
+			<div class="modal-dialog">
+				 <!-- Modal content-->
+				 <button type="button" class="close_left" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<div class="registerBox">
+						 <form action="#" method="POST" id="signup">
+							<div class="signup-block">
+								<h1> Sign Up </h1>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="Email"  placeholder="Email" required="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" name="password" placeholder="Password" required="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" required="">
+								</div>
+								<p class="message">By creating an account you agree to our <a href="terms.html">Terms and Conditions</a> and our <a href="privacy.html">Privacy Policy</a></p>
+								<button type="submit"  class="btn btn-block btn-signin">Create my account</button>
+								<br />
+								<p class="message">Already have an account? <a href="javascript: showLoginForm();">&nbsp;Sign In</a></p>
+							</div>
+						</form>
+				   </div>				
+					<div class="loginBox" style="display: none;"> 
+					 <form method="POST" action="#" id="login">
+						<div class="signup-block">
+							<h1> Sign In </h1>
+							<div class="form-group">
+								<input type="email" class="form-control"  name="userEmail"  placeholder="Email" id="userEmail" required="">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" name="password" placeholder="Password" id="password" required="">
+							</div>
+							<button type="submit"  class="btn btn-block btn-signin">Sign In</button>
+							<br />
+							<p class="message"><a href="javascript: showRecoverForm();">Forgot your password?</a></p>
+							<p class="message">Not registered? <a href="javascript: showRegisterForm();">&nbsp;Create an account</a></p>
+						</div>
+					</form>
+				  </div>
+			  
+				  <div class="recoverBox" style="display: none;">
+					<form method="POST" action="#" id="forgotpass">
+					  <div class="signup-block">
+						<h1> Forgot Password</h1>
+						<div class="form-group">
+							<input type="email" class="form-control" name="userEmail" placeholder="Enter Email" id="Email" required="" />
+						</div>
+						<button type="submit" class="btn btn-block btn-signin">Send Email</button>
+						<p class="message">We will send you a link to reset your password</p>
+						<br />
+						<p class="message">Already have an account? <a href="javascript: showLoginForm();">&nbsp;Sign In</a></p>
+					 </div>
+					</form>
+				</div>
+		   </div>
+	</div>
+						
+				 <div class="tk-pg-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 col-md-offset-4">
+								<div class="Ticket-page-head">
+									<h3>Ticket Status </h3>
+									<p>Enter your Ticket Number and your email address to check the status of your tickets.</p>
+								</div>
+								<div class="tk-form-box">
+									<form action="checkstatus.html" method="post">
+									<div class="form-box">
+										<div class="form-group">
+											<input type="text" class="form-control" name="InputTicketNo" id="TicketNo" placeholder="Booking Reference Number" required>
+										</div>
+										<div class="form-group">
+											<input type="text" class="form-control" name="InputTransactionID" id="TransID" placeholder="Transaction ID">
+										</div>
+										<button type="submit" class="btn tk-status-btn btn-block"> Check Status </button>
+									</div>
+									</form>
+								</div>					
+							</div>
+							</div>
+						</div>
+					</div>
+				
+			
+		
+		<div id="footer" class="cmg_footer">
+				<div class="container">
+					<div class="row footer-row-pd">								
+						<div class="col-sm-12 col-xs-12 visible-sm visible-xs mobi-footer">
+				   		   <ul class="mobi-footer-list">
+								<li>
+									<a href="support.html" class="caps">Need Help ?</a>
+								</li>
+						    </ul>
+						   <p style="text-transform:uppercase;">Stay Connected</p>
+							<ul class="footer-social-list" style="margin-left: 12px;">
+								<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>									
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+							</ul>
+						</div>	
+					  </div>
+					  
+				   
+					   <div class="row hidden-sm hidden-xs">
+							<div class="col-md-3">
+								<div class="footer-info">
+									 <div class="footer-logo" style="padding-bottom: 5px;">
+										<img src="assets/images/duma_new.png" alt="" style="width: 180px;" >
+									</div>
+									<p>
+									 CarrymeGo is Ghana's No.1 travel website for Bus Ticket Booking.
+									</p>		
+									<ul class="footer-social-list">
+										<li><a href="http://facebook.com/Carrymego"><i class="fa fa-facebook-square"></i></a></li>
+										<li><a href="http://twitter.com/Carrymego"><i class="fa fa-twitter"></i></a></li>									
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>								
+								</div>
+							</div>							
+							<div class="col-md-3">
+								<h3>Company</h3>
+								<ul class="footer-links">
+									<li><a href="about.html">About Us</a></li>
+									<li><a href="terms.html">Terms of use</a></li>
+									<li><a href="privacy.html">Privacy Policy</a></li>
+									<li><a href="press.html">Press Release</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
+								</ul>
+							</div>								
+							<div class="col-md-3">
+								<h3>Support</h3>
+								<ul class="footer-links">						
+									<li><a href="faqs.html">FAQ</a></li>
+									<li><a href="payments">Payment</a></li>
+									<li><a href="agent.html">Agent Registration</a></li>
+								</ul>
+							</div>								
+							<div class="col-md-3">
+								<h3>Our Newsletter</h3>
+								 <p> Get exclusive discounts on your Bus Tickets </p>
+								  <div class="go text-center">
+									<form action="#" method="POST" class="form-inline">
+										<input type="email" class="form-control" placeholder="Enter your email..." name="sub_email" id="sub_email"/>
+										<button type="submit" class="btn btn-block btn-primary">Send</button>
+									</form>
+								</div>
+							</div>																			
+						</div>	
+					
+					 <div class="footer-bt ">
+					  <hr style="width: 100%;"/>	
+	 
+						<div class="container">
+						   <div class="row">
+								<div class="col-md-6">
+								<p class="">&#169; 2017
+									<a href="#">CertusByte, LLC.</a> 
+									<span>| All Rights Reserved</span> 
+								</p>
+								</div>
+								<div class="col-md-6hidden-sm hidden-xs">
+								 <p class=" pull-right">
+								 <img src="assets/images/pay.png" alt=""><img style="height:35px;" src="assets/images/slydepay.png"  alt="">
+								  <img style="height:35px;" src="assets/images/ssl_lock.png"  alt="">	
+								</p>
+								</div>
+							</div>
+							</div>
+						</div>						
+				</div>									
+			</div>				
+			<div id="back-to-top">
+				<div class="scrollup" style="display: block;">
+					 <i class="fa fa-angle-up"></i>
+				</div>
+			</div>
+			<div id="version">
+				<p>v 1.0 </p>
+			</div>
+			
+
+
+
+      
+
+			
+			
+   
+	    <script src="assets/js/jquery-3.2.1.min.js"></script>   
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://use.fontawesome.com/7e9b3c1b49.js"></script>
+		<script type="text/javascript" src="assets/js/form.js"></script>	
+		<script type="text/javascript" src="assets/js/global.js"></script>		
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
+		
+		
+
+		
+		</body>
+</html>							
+							
+		

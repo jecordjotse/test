@@ -1,0 +1,317 @@
+
+
+
+   
+   span.select2 {
+	   width: 100% !important;
+   }
+ 
+ 
+ 
+
+ .trip-icon {
+	 margin-right: 20px;
+	 margin-left: 20px;
+ }
+ 
+ 
+.s_font16 {
+    font-size: 16px !important;
+}
+ 
+ .bus_hdr {
+	 background-color: #4bb777; 
+	 color: #fff;
+	 padding: 8px 0 6px 17px;
+ }
+ 
+ 
+ .inline {
+    display: inline-block;
+    list-style: none;
+    vertical-align: top;
+}
+ 
+ 
+ 
+.busdetails_mod  .modal-dialog {
+	margin: 120px auto;
+}
+.busdetails_mod .modal-content {
+	border-radius: 0;
+}
+
+.busdetails_mod .modal-title {
+	font-size: 20px;
+	color: #fff;
+}
+ 
+.busdetails_mod .modal-header {
+	border: 0;
+	/*padding: 0; */
+	color: #fff;
+	background-color: #e6a337;
+}
+ 
+ 
+ .info-text h3 {
+	 font-size: 16px;
+     margin: 0;
+     color: #c0c0c2;
+ }
+ 
+ 
+ 
+ /*******/
+ 
+ 
+ .mr10 {
+	 margin-right: 10px;
+	 color: #4bb777;
+	 font-size: 16px;
+ }
+ 
+ .mar_r_l {
+	 margin-right: 20px;
+	 margin-left: 20px;
+ }
+ /*********/
+ 
+ 
+.bus_list_disp_wrap  a { color: #4bb777;}
+
+
+.modify-btn {
+    border: solid 1px #bcbcbc;
+    border-radius: 0;
+    padding: 7px 10px;
+}
+
+.font700 { font-weight: 700; /*color: #35393a;*/}
+
+.cl-green {color: #4bb777;}
+
+
+
+.sort_bar {	
+	border-top: 1px solid #e9e8e2;
+	border-bottom: 1px solid #e9e8e2;
+	height: 48px; 
+	line-height: 42px;
+		
+}
+
+ul.ui_sort_bar:hover {
+		text-decoration: none;
+}
+ul.ui_sort_bar li {
+	display: inline;
+	padding: 0 16px 6px;
+}
+
+table {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+    border-collapse: collapse;
+	border-spacing: 0; 
+	font-family: 'Lato';
+}
+
+
+.bus_list_disp_wrap thead {
+	color: gray;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+table.bus_list_disp_wrap {
+	font-size: 16px;
+	text-align: left;
+}
+
+table.bus_list_disp_wrap h4 {
+	margin-bottom: 0;
+	color:  #4a4a4a;         
+	font-weight: 700;
+	font-size: 16px;
+}
+ /*#484c50;#343434;*/
+.Depart_time h4, .avail_seats h4, .Board_point h4 {
+	font-weight: 700;
+	color: #4a4a4a;
+}
+
+table.bus_list_disp_wrap th {
+	font-weight: 300;
+	font-size: 14px;
+	margin-bottom: 10px;
+	border-top: 1px solid #efefef;
+	padding: 5px 10px;
+	background-color: #f9f9fc;
+}
+
+table.bus_list_disp_wrap tbody td {
+	color: #3D3D3D;
+	background-color: #fff;
+	padding: 20px 10px;
+	vertical-align: top;
+}
+
+table.bus_list_disp_wrap p {
+	margin: 0;
+	font-size: 14px;
+}
+
+table.bus_list_disp_wrap tr {
+    border: 1px solid #e9e8e2;
+    padding: 5px;
+}
+
+table.bus_list_disp_wrap tr:hover {}
+
+
+
+table.bus_list_disp_wrap td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+ 
+ 
+.arrow img {
+	 width: 15px;
+	height: 15px;
+}
+  
+  
+
+.travels_ag_name, .avail_seats, .Depart_time , .Board_point {
+	position: relative;
+}
+
+.travels_ag_name, .avail_seats,  .Board_point {
+	padding-left: 45px;
+}
+
+.travels_ag_name h4 {
+	font-weight: 500;
+	margin-bottom: 0;
+	color:  #484c50;
+}
+
+.travels_ag_name h4::before, .avail_seats h4::before , .Board_point::before  {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 5px;
+	width: 32px;
+	height: 32px;
+	background: url('../images/bus11.png');
+	background-size: cover;
+}
+
+.Board_point::before {
+	top: 10px;
+	left: 5px;
+	background: url('../images/icon1.png');
+}
+
+.avail_seats h4::before {
+   background: url('../images/seats.png');
+   width: 18px;
+   height: 25px;
+}
+
+.fare_section a.btn-default {
+	font-size: 16px;
+	font-weight: 500;
+	color: #fff;
+	background-color: #fff;
+	outline: 0;
+	border-radius: 0;
+	border-radius: 0;
+	border: 1px solid #4bb777;
+	margin-top: 5px;
+	padding: 5px 12px;background-color:  #4bb777;
+}
+
+.fare_section a:hover, .fare_section a:focus {
+	background-color:  #4bb777;
+	color: #fff;
+}
+
+.sort-grid {
+	
+}
+  
+  
+@media screen and (max-width: 768px) {
+    table {
+        border: 0;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        margin-bottom: 10px;
+        display: block;
+		border: 1px solid #ddd;
+    }  
+
+    table tr:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+  
+    table tr:before {
+        display: block;
+      /*  border-bottom: 2px solid #ddd;*/
+    }
+
+    table td {
+        box-sizing: border-box;
+        display: block;
+        float: left;
+        clear: left;
+        min-width: auto;
+        text-align: left;
+        font-size: 13px;
+    }
+	
+    table.bus_list_disp_wrap td {
+		padding: 8px 10px !important;
+	}
+
+	.avail_seats, .price {
+    position: relative;
+}
+	
+	table.bus_list_disp_wrap tr td:nth-child(4), table.bus_list_disp_wrap tr td:nth-child(5) {
+		display: inline-block;
+		width: 46%;
+	}
+	
+	
+ /*
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+    table td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+    }  */
+	
+	table.bus_list_disp_wrap tr td {
+       min-height: auto;
+     }
+	 
+	 table.bus_list_disp_wrap tr:hover {background-color: none;}
+
+}
